@@ -82,7 +82,6 @@ public class FilmController {
 		List<Actor> actors = new ArrayList<>();
 		film.setActors(actors);
 		mv.addObject(film);
-		return mv;
 		}
 		mv.setViewName("AddFilmViewer.jsp");
 		return mv;
