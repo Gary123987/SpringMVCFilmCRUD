@@ -21,4 +21,5 @@ public interface DatabaseAccessor {
 	boolean deleteFilm(Film film);
 	Film updateFilm(int filmId, Film film);
 	String getFilmLang(Film film);
+	String getFilmCategory(Film film);
 }
