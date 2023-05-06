@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.skilldistillery.film.data.DatabaseAccessor;
+import com.skilldistillery.film.data.DatabaseAccessorObject;
+
 public class Film {
 	private int filmId;
 	private String title;
@@ -17,7 +20,8 @@ public class Film {
 	private String rating; 
 	private String features;
 	private List<Actor> actors;
-	
+	private String language;
+
 	public Film() {}
 	
 	public Film(String title, int langId, int rentDur, double rate, double repCost) {
@@ -176,6 +180,14 @@ public class Film {
 	
 	public void setActors(List<Actor> actors) {
 		this.actors = actors;
+	}
+	
+	public String getLanguage() {
+		return language;
+	}
+	
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 	
 	@Override

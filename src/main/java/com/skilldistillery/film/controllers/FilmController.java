@@ -1,5 +1,6 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.DatabaseAccessor;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -28,6 +30,10 @@ public class FilmController {
 	public ModelAndView lookUp(@RequestParam("FilmID") int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(id);
+		String lang = dao.getFilmLang(film);
+		film.setLanguage(lang);
+		List<Actor> actors = film.getActors();
+		film.setActors(actors);
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
 		return mv;
@@ -36,8 +42,15 @@ public class FilmController {
 	public ModelAndView lookUpByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.findFilmByKeyword(keyword);
+		for (Film film : films) {
+			String lang = dao.getFilmLang(film);
+			film.setLanguage(lang);		
+			int id = film.getFilmId();
+			List<Actor> actors = dao.findActorsByFilmId(id);
+			film.setActors(actors);
+		}
 		mv.setViewName("FilmViewer.jsp");
-		mv.addObject(films);
+		mv.addObject("films", films);				
 		return mv;
 	}
 	
@@ -54,6 +67,10 @@ public class FilmController {
 		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
 		film = dao.createFilm(film);
 		if (film != null) {
+		String lang = dao.getFilmLang(film);
+		film.setLanguage(lang);
+		List<Actor> actors = new ArrayList<>();
+		film.setActors(actors);
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
 		return mv;
