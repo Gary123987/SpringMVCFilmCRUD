@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Select an ID to Delete</h1><br>
 
+<form action="deleteFilm.do">
+<input type="text" name="id">
+<input type="submit">
+
+
+
+</form>
 
 
 
