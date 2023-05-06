@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
-import com.skilldistillery.film.entities.Language;
 
 public class DatabaseAccessorObject implements DatabaseAccessor {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
@@ -173,8 +172,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String features = filmResult.getString("special_features");
 				Film film = new Film(filmId, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating,
 						features);
-//FIND LANGUAGE REFERENCE
-				findLanguage(filmId);
 				films.add(film);
 			}
 			filmResult.close();
@@ -184,30 +181,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			e.printStackTrace();
 		}
 		return films;
-	}
-
-//FIND LANGUAGE REFERENCE
-	@Override
-	public Language findLanguage(int idFilm) {
-		Language language = null;
-		try {
-			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "SELECT language.* FROM film JOIN language ON language.id = film.language_id WHERE film.id = ?";
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, idFilm);
-			ResultSet result = stmt.executeQuery();
-			if (result.next()) {
-				int languageId = result.getInt("id");
-				String name = result.getString("name");
-				language = new Language(languageId, name);
-			}
-			result.close();
-			stmt.close();
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return language;
 	}
 
 	@Override
@@ -431,5 +404,28 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			film = null;
 		}
 		return findFilmById(filmId);
+	}
+	
+	public String getFilmLang(Film film) {
+		String title = film.getTitle();
+		String lang = null;
+		try {
+			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "SELECT language.name FROM language JOIN film ON language.id = film.language_id "
+					+ "WHERE film.title = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, title);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+			lang = rs.getString(1);
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lang;
 	}
 }

@@ -7,7 +7,6 @@ import com.skilldistillery.film.data.DatabaseAccessor;
 import com.skilldistillery.film.data.DatabaseAccessorObject;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
-import com.skilldistillery.film.entities.Language;
 
 public class FilmQueryApp {
 
@@ -15,56 +14,56 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-		app.test();
-//		app.launch();
+//		app.test();
+		app.launch();
 	}
 
-	private void test() {
-		Film film = db.findFilmById(0);
-		if (film != null) {
-			System.out.println(film);
-		} else {
-			System.out.println("No film found for search.");
-		}
-
-		Actor actor = db.findActorById(0);
-		if (actor != null) {
-			System.out.println(actor);
-		} else {
-			System.out.println("No actor found for search.");
-		}
-
-		List<Film> actorIdToFilm = db.findFilmsByActorId(0);
-		if (!actorIdToFilm.isEmpty()) {
-			System.out.println(actorIdToFilm);
-		} else {
-			System.out.println("No film found for search.");
-		}
-
-		List<Actor> filmIdToActor = db.findActorsByFilmId(0);
-		if (!filmIdToActor.isEmpty()) {
-			System.out.println(filmIdToActor);
-		} else {
-			System.out.println("No actor found for search.");
-		}
-		
-		String title = "TEST2";
-		String desc = "blah blah";
-		int year = 1999;
-		int duration = 10;
-		double rate = 5.55;
-		int length = 3;
-		double cost = 22.22;
-		String rating = "PG13";
-//		the 1 is language_id being hardcoded
-		Film tester = new Film(title, desc, year, 1, duration, rate, length, cost, rating);
-		Film createdFilm = db.createFilm(tester);
-		if (createdFilm != null) {
-			System.out.println(createdFilm);
-		} else {
-			System.out.println("Film not created.");
-		}
-	}
+//	private void test() {
+//		Film film = db.findFilmById(4); //change to 0
+//		if (film != null) {
+//			System.out.println(film);
+//		} else {
+//			System.out.println("No film found for search.");
+//		}
+//
+//		Actor actor = db.findActorById(0);
+//		if (actor != null) {
+//			System.out.println(actor);
+//		} else {
+//			System.out.println("No actor found for search.");
+//		}
+//
+//		List<Film> actorIdToFilm = db.findFilmsByActorId(0);
+//		if (!actorIdToFilm.isEmpty()) {
+//			System.out.println(actorIdToFilm);
+//		} else {
+//			System.out.println("No film found for search.");
+//		}
+//
+//		List<Actor> filmIdToActor = db.findActorsByFilmId(0);
+//		if (!filmIdToActor.isEmpty()) {
+//			System.out.println(filmIdToActor);
+//		} else {
+//			System.out.println("No actor found for search.");
+//		}
+//		
+//		String title = "TEST2";
+//		String desc = "blah blah";
+//		int year = 1999;
+//		int duration = 10;
+//		double rate = 5.55;
+//		int length = 3;
+//		double cost = 22.22;
+//		String rating = "PG13";
+////		the 1 is language_id being hardcoded
+//		Film tester = new Film(title, desc, year, 1, duration, rate, length, cost, rating);
+//		Film createdFilm = db.createFilm(tester);
+//		if (createdFilm != null) {
+//			System.out.println(createdFilm);
+//		} else {
+//			System.out.println("Film not created.");
+//		}
+//	}
 
 	private void launch() {
 		Scanner input = new Scanner(System.in);
@@ -117,10 +116,9 @@ public class FilmQueryApp {
 		int idSelection = input.nextInt();
 		input.nextLine();
 		Film film = db.findFilmById(idSelection);
-		Language language = db.findLanguage(idSelection);
 		if (film != null) {
 			System.out.print(film.getTitle() + ", Released: " + film.getReleaseYear() + ", Rating: " + film.getRating()
-					+ ", Language: " + language.getName() + "\nActors: ");
+					+ ", Language: " + db.getFilmLang(film) + "\nActors: ");
 			List<Actor> actors = film.getActors();
 			for (Actor actor : actors) {
 				if (actors.indexOf(actor) < actors.size() - 1) {
@@ -145,9 +143,8 @@ public class FilmQueryApp {
 		if (!filmWordSearch.isEmpty()) {
 			for (Film movie : filmWordSearch) {
 				int id = movie.getFilmId();
-				Language lang = db.findLanguage(id);
 				System.out.print(movie.getTitle() + ", Released: " + movie.getReleaseYear() + ", Rating: "
-						+ movie.getRating() + ", Language: " + lang.getName() + "\nActors: ");
+						+ movie.getRating() + ", Language: " + db.getFilmLang(movie) + "\nActors: ");
 				List<Actor> actors = db.findActorsByFilmId(id);
 				for (Actor actor : actors) {
 					if (actors.indexOf(actor) < actors.size() - 1) {
