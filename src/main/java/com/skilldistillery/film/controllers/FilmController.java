@@ -83,6 +83,17 @@ public class FilmController {
 		}
 		return mv;
 	}
+	@RequestMapping(path="deleteFilm.do")
+	public ModelAndView deleter(@RequestParam("id")int id) {
+		ModelAndView mv = new ModelAndView();
+		if (id > 1000) {
+		Film film = dao.findFilmById(id);
+		dao.deleteFilm(film);
+		mv.addObject(film);
+		}		
+		mv.setViewName("DeletedFilmViewer.jsp");
+		return mv;
+	}
 	
 	
 
