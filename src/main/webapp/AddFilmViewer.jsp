@@ -37,6 +37,7 @@
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
 			<li>Special Features: ${film.features }</li>
+			<li><a href="updateFilm.do?filmID=<c:out value="${film.filmId}" />" class="btn btn-secondary" role="button">Update this Film</a></li>
 		</ul>
 	</c:forEach>
 	</c:when>
@@ -60,6 +61,7 @@
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
 			<li>Special Features: ${film.features }</li>
+			<li><a href="updateFilm.do?filmID=<c:out value="${film.filmId}" />" class="btn btn-secondary" role="button">Update this Film</a></li>
 		</ul>
 	</c:when>
 

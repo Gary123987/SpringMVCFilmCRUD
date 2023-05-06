@@ -10,15 +10,15 @@
 	<h1>Add a Film</h1>
 	<br>
 	<form action="AddFilm.do">
-		Title:<input type="text" name="title"><br> Description:<input
-			type="text" name="description"><br> Release Year:<input
-			type="text" name="releaseYear"><br> Rental Duration:<input
-			type="text" name="rentalDuration"><br> Rental Rate:<input
-			type="text" name="rentalRate"><br> Length:<input
-			type="text" name="length"><br> Replacement Cost:<input
-			type="text" name="replacementCost"><br> Rating:<input
+		Title:<input type="text" name="title" required><br> Description:<input
+			type="text" name="description" required><br> Release Year:<input
+			type="text" name="releaseYear" required><br> Rental Duration:<input
+			type="text" name="rentalDuration" required><br> Rental Rate:<input
+			type="text" name="rentalRate" required><br> Length:<input
+			type="text" name="length" required><br> Replacement Cost:<input
+			type="text" name="replacementCost" required><br> Rating:<input
 			type="radio" name="rating" value="G">G <input type="radio"
-			name="rating" value="PG">PG <input type="radio"
+			name="rating" value="PG" required>PG <input type="radio"
 			name="rating" value="PG13">PG13 <input type="radio"
 			name="rating" value="R">R <br>
 		<input type="submit">

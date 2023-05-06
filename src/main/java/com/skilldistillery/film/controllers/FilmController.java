@@ -98,5 +98,13 @@ public class FilmController {
 		mv.setViewName("DeletedFilmViewer.jsp");
 		return mv;
 	}
+	@RequestMapping(path = "updateFilm.do")
+	public ModelAndView updater(@RequestParam("filmID") int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = dao.findFilmById(id);
+		mv.addObject(film);
+		mv.setViewName("UpdateFilm.jsp");
+		return mv;
+	}
 
 }
