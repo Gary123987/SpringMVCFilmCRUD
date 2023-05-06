@@ -11,33 +11,27 @@
 	<h1>Update a Film</h1>
 
 	<form action="updateFilmV2.do">
-		Film ID: <input type="text" name="ID" value="${film.filmId }" readonly><br>
-		Title: <input type="text" value="${film.title}" name="title" /><br>
-		Description: <input type="text" value="${film.desc}"
-			name="description" /><br> Release Year: <input type="text"
-			value="${film.releaseYear}" name="releaseYear" /><br> Rental
-		Duration: <input type="text" value="${film.rentDur}"
-			name="rentalDuration" /><br> Rental Rate: <input type="text"
-			value="${film.rate}" name="rate" /><br> Length: <input
-			type="text" value="${film.length}" name="length" /><br>
-		Replacement Cost: <input type="text" value="${film.repCost}"
-			name="repCost" /><br> Rating: (Current is ${film.rating})<input
+		Film ID (<em>Locked</em>): <input type="text" name="ID" value="${film.filmId }" readonly><br>
+		Title: <input type="text" value="${film.title}" name="title" required/><br>
+		Description: <input type="text" value="${film.desc}" name="description" required/><br>
+		Release Year: <input type="text" value="${film.releaseYear}" name="releaseYear" required/><br>
+		Rental Duration: <input type="text" value="${film.rentDur}" name="rentalDuration" required/><br>
+		Rental Rate: <input type="text" value="${film.rate}" name="rate" required/><br>
+		Runtime: <input type="text" value="${film.length}" name="length" required/><br>
+		Replacement Cost: <input type="text" value="${film.repCost}" name="repCost" required/><br>
+		Rating: (Current is ${film.rating})<input
 			type="radio" name="rating" value="G">G <input type="radio"
 			name="rating" value="PG" required>PG <input type="radio"
 			name="rating" value="PG13">PG13 <input type="radio"
 			name="rating" value="R">R <br> <input type="submit" />
 	</form>
 
-
-
-
-
 	<hr>
 	<p>
 		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add
-			a Film</a> <a href="DeleteFilm.jsp" class="btn btn-secondary"
-			role="button">Delete a Film</a> <a href="LookupFilm.jsp"
-			class="btn btn-secondary" role="button">Lookup another Film</a>
+			Film</a> | <a href="DeleteFilm.jsp" class="btn btn-secondary"
+			role="button">Delete Film</a> | <a href="LookupFilm.jsp"
+			class="btn btn-secondary" role="button">Lookup Film</a>
 	</p>
 </body>
 </html>

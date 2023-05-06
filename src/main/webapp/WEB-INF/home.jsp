@@ -12,10 +12,12 @@
 <title>Spring MVC site</title>
 </head>
 <body>
-<h1>What would you like to do?</h1><br>
-<a href="AddFilm.jsp">Add a Film </a><br>
-<a href="DeleteFilm.jsp">Delete a Film</a><br>
-<a href="LookupFilm.jsp">Lookup a Film</a><br>
+<h1>Wecome to the film database!</h1>
+<p>What would you like to do?<br>
+<a href="AddFilm.jsp">Add Film </a><br>
+<a href="DeleteFilm.jsp">Delete Film</a><br>
+<a href="LookupFilm.jsp">Lookup Film</a><br>
+</p>
 
 </body>
 </html>

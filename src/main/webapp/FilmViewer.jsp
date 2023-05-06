@@ -63,7 +63,7 @@
 			<li>Language: ${film.language }</li>
 			<li>Category: ${film.category }</li>
 			<li>Special Features: ${film.features }</li>
-		<li><a href="updateFilm.do?filmID=<c:out value="${film.filmId}" />" class="btn btn-secondary" role="button">Update this Film</a></li>
+		<li><a href="updateFilm.do?filmID=<c:out value="${film.filmId}" />" class="btn btn-secondary" role="button">Update Film</a></li>
 		</ul>
 	</c:when>
 
@@ -76,9 +76,9 @@
 	
 	<hr>
 	<p>
-		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add a Film</a>
-		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete a Film</a>
-		<a href="LookupFilm.jsp" class="btn btn-secondary" role="button">Lookup another Film</a>
+		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add Film</a> | 
+		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete Film</a> | 
+		<a href="LookupFilm.jsp" class="btn btn-secondary" role="button">Lookup Film</a>
 	</p>
 </body>
 </html>
