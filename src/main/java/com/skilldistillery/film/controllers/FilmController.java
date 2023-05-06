@@ -38,6 +38,10 @@ public class FilmController {
 	public ModelAndView lookUpByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.findFilmByKeyword(keyword);
+		for (Film film : films) {
+			String lang = dao.getFilmLang(film);
+			film.setLanguage(lang);			
+		}
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject("films", films);				
 		return mv;
