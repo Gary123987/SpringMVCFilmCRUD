@@ -26,12 +26,10 @@
 			<li>Rating: ${film.rating }</li>
 			<li>Runtime: ${film.length } minutes</li>
 			<li>Rental Duration: ${film.rentDur} weeks</li>
-			<li>Rental Rate: <fmt:formatNumber type="currency"
-					value="${film.rate }" /></li>
-			<li>Replacement Cost: <fmt:formatNumber type="currency"
-					value="${film.repCost }" /></li>
+			<li>Rental Rate: <fmt:formatNumber type="currency" value="${film.rate }" /></li>
+			<li>Replacement Cost: <fmt:formatNumber type="currency" value="${film.repCost }" /></li>
 			<li>Language ID: ${film.langId }</li>
-			<%-- <p>Language: ${film.language }</p> --%>
+			<li>Language: ${film.language }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</div>
