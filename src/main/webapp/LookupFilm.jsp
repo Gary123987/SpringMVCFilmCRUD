@@ -11,7 +11,12 @@
 Please enter the ID you wish to lookup:<br>
 <input type="text" name="FilmID">
 <input type="submit" value="submit">
+</form>
 
+<form action="FilmLookup2.do">
+Please enter a keyword or phrase to search by:<br>
+<input type="text" name="keyword">
+<input type="submit">
 </form>
 
 </body>
