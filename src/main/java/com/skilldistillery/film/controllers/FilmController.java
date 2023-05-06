@@ -28,6 +28,8 @@ public class FilmController {
 	public ModelAndView lookUp(@RequestParam("FilmID") int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(id);
+		String lang = dao.getFilmLang(film);
+		film.setLanguage(lang);
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
 		return mv;
