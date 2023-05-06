@@ -103,5 +103,17 @@ public class FilmController {
 		mv.setViewName("UpdateFilm.jsp");
 		return mv;
 	}
-
+	
+	@RequestMapping(path = "updateFilmV2.do")
+	public ModelAndView updaterV2(@RequestParam("title") String title, @RequestParam("description") String description,
+			@RequestParam("releaseYear") int year, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("rate") double rentalRate, @RequestParam("length") int length,
+			@RequestParam("repCost") double replacementCost, @RequestParam("rating") String rating, @RequestParam("ID") int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
+		film = dao.updateFilm(id, film);
+		mv.addObject(film);
+		mv.setViewName("FilmViewer.jsp");
+		return mv;
+	}
 }
