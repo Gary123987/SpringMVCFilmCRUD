@@ -184,12 +184,13 @@ public class Film {
 	}
 	
 	public String getLanguage() {
-		Film film = db.findFilmById(filmId);
-		db.getFilmLang(film);
 		return language;
 	}
 	
 	public void setLanguage(String language) {
+		int id = getFilmId();
+		Film film = db.findFilmById(id);
+		language = db.getFilmLang(film);
 		this.language = language;
 	}
 	
