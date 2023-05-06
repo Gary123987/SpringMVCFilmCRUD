@@ -35,6 +35,11 @@
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</div>
+	
+	<p>
+		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add a Film</a>
+		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete a Film</a>
+		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
 
 
 	<c:forEach items="${films}" var="film">
