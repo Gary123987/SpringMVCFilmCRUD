@@ -53,8 +53,11 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
 		film = dao.createFilm(film);
+		if (film != null) {
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
+		return mv;
+		}
 		return mv;
 	}
 	
