@@ -20,6 +20,6 @@ Rating:<input type="text" name="rating">
 <input type="submit">
 </form>
 
-</form>
+
 </body>
 </html>
