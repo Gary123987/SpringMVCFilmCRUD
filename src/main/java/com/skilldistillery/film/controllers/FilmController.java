@@ -43,7 +43,11 @@ public class FilmController {
 	@RequestMapping(path="FilmLookup2.do")
 	public ModelAndView lookUpByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = dao.findFilmByKeyword(keyword);
+		String[] splited = keyword.split("\\s+");
+		List<Film> films = new ArrayList<>(); 
+		for (String splitKeyword : splited) {
+		films.addAll(dao.findFilmByKeyword(splitKeyword));
+		}
 		for (Film film : films) {
 			String lang = dao.getFilmLang(film);
 			film.setLanguage(lang);		
@@ -66,7 +70,6 @@ public class FilmController {
 			@RequestParam("replacementCost") double replacementCost,
 			@RequestParam("rating")String rating) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(rating);
 		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
 		film = dao.createFilm(film);
 		if (film != null) {

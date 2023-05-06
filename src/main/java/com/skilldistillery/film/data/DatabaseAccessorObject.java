@@ -328,6 +328,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setFilmId(newFilmId);
+					conn.commit(); // COMMIT TRANSACTION
 					return film;
 				}
 			} 
