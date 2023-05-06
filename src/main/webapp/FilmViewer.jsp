@@ -20,6 +20,8 @@
 	<c:forEach var="film" items="${films}" >
 			Title: <strong>${film.title }</strong> 
 			<br>Cast: 
+			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
+			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
 			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
 			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
 			</c:forEach>
@@ -37,10 +39,12 @@
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</c:forEach>
+	
 	</c:when>
 	<c:otherwise>
 			Title: <strong>${film.title }</strong> 
 			<br>Cast:
+			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
 			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
 			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
 			</c:forEach>

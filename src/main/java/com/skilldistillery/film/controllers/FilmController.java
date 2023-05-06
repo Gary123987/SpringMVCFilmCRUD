@@ -1,5 +1,6 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,10 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
 		film = dao.createFilm(film);
+		String lang = dao.getFilmLang(film);
+		film.setLanguage(lang);
+		List<Actor> actors = new ArrayList<>();
+		film.setActors(actors);
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
 		return mv;
