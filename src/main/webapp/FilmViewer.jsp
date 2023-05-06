@@ -19,6 +19,10 @@
 	<c:when test="${films.size() > 1 }">
 	<c:forEach var="film" items="${films}" >
 			Title: <strong>${film.title }</strong> 
+			<br>Cast: 
+			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
+			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
+			</c:forEach>
 			<br>${film.desc }
 		<ul>
 			<li><em>Film ID: <strong>${film.filmId }</strong></em></li>
@@ -36,9 +40,10 @@
 	</c:when>
 	<c:otherwise>
 			Title: <strong>${film.title }</strong> 
-	<%-- 		<c:forEach var="actor" items="${film }">
-				${actor }
-			</c:forEach> --%>
+			<br>Cast:
+			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
+			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
+			</c:forEach>
 			<br>${film.desc }
 		<ul>
 			<li><em>Film ID: <strong>${film.filmId }</strong></em></li>
