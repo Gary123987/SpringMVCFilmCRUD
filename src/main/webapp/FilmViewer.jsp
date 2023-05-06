@@ -10,14 +10,14 @@
 <title>Film Viewer</title>
 </head>
 <body>
-
-	${film }
-
-	<div class="filmdetail">
+	<div>
 		<img
 			src="https://thumbs.dreamstime.com/b/movie-slate-film-reel-wood-clapper-wooden-backgorund-36502412.jpg"
 			width="300" height="200" alt="stock cinema photo" />
 		<p>
+
+
+	<c:forEach var="film" items="${films}" >
 			Title: <strong>${film.title }</strong> 
 			<br>${film.desc }
 		<ul>
@@ -32,18 +32,14 @@
 			<li>Language: ${film.language }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
+	</c:forEach>
 	</div>
 	
+	<hr>
 	<p>
 		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add a Film</a>
 		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete a Film</a>
 		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
-
-
-	<c:forEach items="${films}" var="film">
-    ${film.title}<br>
-	</c:forEach>
-
-
+	</p>
 </body>
 </html>

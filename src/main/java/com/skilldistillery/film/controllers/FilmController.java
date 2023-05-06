@@ -37,7 +37,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.findFilmByKeyword(keyword);
 		mv.setViewName("FilmViewer.jsp");
-		mv.addObject(films);
+		mv.addObject("films", films);				
 		return mv;
 	}
 	
