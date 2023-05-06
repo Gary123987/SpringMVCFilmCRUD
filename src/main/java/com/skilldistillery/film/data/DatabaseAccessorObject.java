@@ -407,9 +407,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 	
 	public String getFilmLang(Film film) {
-		String title = film.getTitle();
+		String title = null;
 		String lang = null;
 		try {
+			title = film.getTitle();
 			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			String sql = "SELECT language.name FROM language JOIN film ON language.id = film.language_id "
 					+ "WHERE film.title = ?";

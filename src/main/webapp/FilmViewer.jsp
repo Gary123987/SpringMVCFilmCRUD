@@ -16,7 +16,8 @@
 			width="300" height="200" alt="stock cinema photo" />
 		<p>
 	<c:choose>
-	<c:when test="${films.size() > 1 }">
+	
+	<c:when test="${films.size() > 0 }">
 	<c:forEach var="film" items="${films}" >
 			Title: <strong>${film.title }</strong> 
 			<br>Cast: 
@@ -38,9 +39,9 @@
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</c:forEach>
-	
 	</c:when>
-	<c:otherwise>
+
+	<c:when test="${not empty film }">
 			Title: <strong>${film.title }</strong> 
 			<br>Cast:
 			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
@@ -60,7 +61,12 @@
 			<li>Language: ${film.language }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
+	</c:when>
+
+	<c:otherwise>
+		<h2>No film found in database.</h2>
 	</c:otherwise>
+	
 	</c:choose>
 	</div>
 	

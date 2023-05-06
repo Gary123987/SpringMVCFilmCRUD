@@ -30,12 +30,14 @@ public class FilmController {
 	public ModelAndView lookUp(@RequestParam("FilmID") int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(id);
-		String lang = dao.getFilmLang(film);
-		film.setLanguage(lang);
-		List<Actor> actors = film.getActors();
-		film.setActors(actors);
+		if(film != null) {
+			String lang = dao.getFilmLang(film);
+			film.setLanguage(lang);			
+			List<Actor> actors = film.getActors();
+			film.setActors(actors);
+			mv.addObject(film);
+		}
 		mv.setViewName("FilmViewer.jsp");
-		mv.addObject(film);
 		return mv;
 	}
 	@RequestMapping(path="FilmLookup2.do")
