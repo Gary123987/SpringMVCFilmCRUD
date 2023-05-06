@@ -37,7 +37,6 @@
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
 			<li>Category: ${film.category }</li>
-			<li>Category: ${film.category }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</c:forEach>
@@ -61,7 +60,6 @@
 			<li>Replacement Cost: <fmt:formatNumber type="currency" value="${film.repCost }" /></li>
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
-			<li>Category: ${film.category }</li>
 			<li>Category: ${film.category }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
