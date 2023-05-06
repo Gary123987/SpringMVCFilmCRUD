@@ -18,8 +18,10 @@
 			type="text" name="length"><br> Replacement Cost:<input
 			type="text" name="replacementCost"><br> Rating:<input
 			type="radio" name="rating" value="G">G <input type="radio"
-			name="rating" value="PG"> PG <input type="radio" name="rating" value="PG13">PG13
-		<input type="radio" name="rating" value="R">R <br><input type="submit">
+			name="rating" value="PG">PG <input type="radio"
+			name="rating" value="PG13">PG13 <input type="radio"
+			name="rating" value="R">R <br>
+		<input type="submit">
 	</form>
 
 
