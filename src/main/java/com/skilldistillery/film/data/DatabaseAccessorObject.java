@@ -430,29 +430,31 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return lang;
 	}
 	
-//	public String getFilmCat(Film film) {
-//		String title = null;
-//		String category = null;
-//		try {
-//			title = film.getTitle();
-//			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-//			String sql = "SELECT language.name FROM language JOIN film ON language.id = film.language_id "
-//					+ "WHERE film.title = ?";
-//			PreparedStatement stmt = conn.prepareStatement(sql);
-//			stmt.setString(1, title);
-//			ResultSet rs = stmt.executeQuery();
-//			if (rs.next()) {
-//			category = rs.getString(1);
-//			}
-//
-//			rs.close();
-//			stmt.close();
-//			conn.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return category;
-//	}	
+	public String getFilmCategory(Film film) {
+		int id;
+		String category = null;
+		try {
+			id = film.getFilmId();
+			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "SELECT category.name FROM category "
+					+ "JOIN film_category ON category.id = film_category.category_id "
+					+ "JOIN film ON film_category.film_id = film.id "
+					+ "WHERE film.id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+			category = rs.getString(1);
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return category;
+	}	
 	
 	
 	

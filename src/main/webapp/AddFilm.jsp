@@ -34,7 +34,7 @@
 			a Film</a> <a href="DeleteFilm.jsp" class="btn btn-secondary"
 			role="button">Delete a Film</a> <a href="LookupFilm.jsp"
 			class="btn btn-secondary" role="button">Lookup another Film</a> <a
-			href="AddFilm.jsp" class="btn btn-secondary" role="button">Update
+			href="UpdateFilm.jsp" class="btn btn-secondary" role="button">Update
 			an existing Film</a>
 	</p>
 </body>

@@ -33,6 +33,8 @@ public class FilmController {
 		if(film != null) {
 			String lang = dao.getFilmLang(film);
 			film.setLanguage(lang);			
+			String category = dao.getFilmCategory(film);
+			film.setCategory(category);
 			List<Actor> actors = film.getActors();
 			film.setActors(actors);
 			mv.addObject(film);
@@ -51,6 +53,8 @@ public class FilmController {
 		for (Film film : films) {
 			String lang = dao.getFilmLang(film);
 			film.setLanguage(lang);		
+			String category = dao.getFilmCategory(film);
+			film.setCategory(category);
 			int id = film.getFilmId();
 			List<Actor> actors = dao.findActorsByFilmId(id);
 			film.setActors(actors);

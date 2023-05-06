@@ -21,7 +21,7 @@
 	<c:forEach var="film" items="${films}" >
 			Title: <strong>${film.title }</strong> 
 			<br>Cast: 
-			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
+			<c:if test="${empty film.actors }"><em>None</em></c:if>
 			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
 			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
 			</c:forEach>
@@ -36,6 +36,7 @@
 			<li>Replacement Cost: <fmt:formatNumber type="currency" value="${film.repCost }" /></li>
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
+			<li>Category: ${film.category }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</c:forEach>
@@ -44,7 +45,7 @@
 	<c:when test="${not empty film }">
 			Title: <strong>${film.title }</strong> 
 			<br>Cast:
-			<c:if test="${empty film.actors }"><em>None entered</em></c:if>
+			<c:if test="${empty film.actors }"><em>None</em></c:if>
 			<c:forEach var="actor" items="${film.actors }" varStatus="loop">
 			<em> ${actor}<c:if test="${!loop.last }">, </c:if></em>
 			</c:forEach>
@@ -59,6 +60,7 @@
 			<li>Replacement Cost: <fmt:formatNumber type="currency" value="${film.repCost }" /></li>
 			<li>Language ID: ${film.langId }</li>
 			<li>Language: ${film.language }</li>
+			<li>Category: ${film.category }</li>
 			<li>Special Features: ${film.features }</li>
 		</ul>
 	</c:when>
@@ -75,7 +77,7 @@
 		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add a Film</a>
 		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete a Film</a>
 		<a href="LookupFilm.jsp" class="btn btn-secondary" role="button">Lookup another Film</a>
-		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
+		<a href="UpdateFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
 	</p>
 </body>
 </html>

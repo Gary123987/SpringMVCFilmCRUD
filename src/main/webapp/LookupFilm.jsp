@@ -28,7 +28,7 @@ Please enter a keyword or phrase to search by:<br>
 		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Add a Film</a>
 		<a href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete a Film</a>
 		<a href="LookupFilm.jsp" class="btn btn-secondary" role="button">Lookup another Film</a>
-		<a href="AddFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
+		<a href="UpdateFilm.jsp" class="btn btn-secondary" role="button">Update an existing Film</a>
 	</p>
 </body>
 </html>

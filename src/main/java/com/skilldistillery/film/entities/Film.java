@@ -21,6 +21,7 @@ public class Film {
 	private String features;
 	private List<Actor> actors;
 	private String language;
+	private String category;
 
 	public Film() {}
 	
@@ -188,6 +189,14 @@ public class Film {
 	
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	@Override
