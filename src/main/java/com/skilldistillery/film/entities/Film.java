@@ -21,7 +21,6 @@ public class Film {
 	private String features;
 	private List<Actor> actors;
 	private String language;
-	private DatabaseAccessor db = new DatabaseAccessorObject();
 
 	public Film() {}
 	
@@ -188,9 +187,6 @@ public class Film {
 	}
 	
 	public void setLanguage(String language) {
-		int id = getFilmId();
-		Film film = db.findFilmById(id);
-		language = db.getFilmLang(film);
 		this.language = language;
 	}
 	

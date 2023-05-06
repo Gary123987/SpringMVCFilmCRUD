@@ -36,6 +36,9 @@
 	</c:when>
 	<c:otherwise>
 			Title: <strong>${film.title }</strong> 
+	<%-- 		<c:forEach var="actor" items="${film }">
+				${actor }
+			</c:forEach> --%>
 			<br>${film.desc }
 		<ul>
 			<li><em>Film ID: <strong>${film.filmId }</strong></em></li>
