@@ -51,7 +51,7 @@ public class FilmController {
 			@RequestParam("replacementCost") double replacementCost,
 			@RequestParam("rating")String rating) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(0, title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
+		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
 		film = dao.createFilm(film);
 		mv.setViewName("FilmViewer.jsp");
 		mv.addObject(film);
