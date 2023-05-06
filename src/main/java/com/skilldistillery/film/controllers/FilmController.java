@@ -70,20 +70,17 @@ public class FilmController {
 			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
 			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating) {
 		ModelAndView mv = new ModelAndView();
-		
-		
 
-			Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost,
-					rating);
-			film = dao.createFilm(film);
-			if (film != null) {
-				String lang = dao.getFilmLang(film);
-				film.setLanguage(lang);
-				List<Actor> actors = new ArrayList<>();
-				film.setActors(actors);
-				mv.addObject(film);
-			}
-			mv.setViewName("AddFilmViewer.jsp");
+		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
+		dao.createFilm(film);
+		if (film.getFilmId() != 0) {
+		String lang = dao.getFilmLang(film);
+		film.setLanguage(lang);
+		List<Actor> actors = new ArrayList<>();
+		film.setActors(actors);
+		mv.addObject(film);
+		}
+		mv.setViewName("AddFilmViewer.jsp");
 		return mv;
 	}
 
