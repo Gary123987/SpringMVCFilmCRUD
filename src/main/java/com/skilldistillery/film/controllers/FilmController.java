@@ -16,23 +16,22 @@ import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
-	
+
 	@Autowired
 	private DatabaseAccessor dao;
-	
-	
-	@RequestMapping(path = {"/", "home.do"})
+
+	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
 		return "WEB-INF/home.jsp";
 	}
-	
-	@RequestMapping(path="FilmLookup.do")
+
+	@RequestMapping(path = "FilmLookup.do")
 	public ModelAndView lookUp(@RequestParam("FilmID") int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(id);
-		if(film != null) {
+		if (film != null) {
 			String lang = dao.getFilmLang(film);
-			film.setLanguage(lang);			
+			film.setLanguage(lang);
 			String category = dao.getFilmCategory(film);
 			film.setCategory(category);
 			List<Actor> actors = film.getActors();
@@ -42,17 +41,18 @@ public class FilmController {
 		mv.setViewName("FilmViewer.jsp");
 		return mv;
 	}
-	@RequestMapping(path="FilmLookup2.do")
+
+	@RequestMapping(path = "FilmLookup2.do")
 	public ModelAndView lookUpByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		String[] splited = keyword.split("\\s+");
-		List<Film> films = new ArrayList<>(); 
+		List<Film> films = new ArrayList<>();
 		for (String splitKeyword : splited) {
-		films.addAll(dao.findFilmByKeyword(splitKeyword));
+			films.addAll(dao.findFilmByKeyword(splitKeyword));
 		}
 		for (Film film : films) {
 			String lang = dao.getFilmLang(film);
-			film.setLanguage(lang);		
+			film.setLanguage(lang);
 			String category = dao.getFilmCategory(film);
 			film.setCategory(category);
 			int id = film.getFilmId();
@@ -60,45 +60,43 @@ public class FilmController {
 			film.setActors(actors);
 		}
 		mv.setViewName("FilmViewer.jsp");
-		mv.addObject("films", films);				
+		mv.addObject("films", films);
 		return mv;
 	}
-	
-	@RequestMapping(path="AddFilm.do")
-	public ModelAndView adder(@RequestParam("title") String title,
-			@RequestParam("description") String description,
-			@RequestParam("releaseYear") int year,
-			@RequestParam("rentalDuration") int rentalDuration,
-			@RequestParam("rentalRate") double rentalRate,
-			@RequestParam("length")int length,
-			@RequestParam("replacementCost") double replacementCost,
-			@RequestParam("rating")String rating) {
+
+	@RequestMapping(path = "AddFilm.do")
+	public ModelAndView adder(@RequestParam("title") String title, @RequestParam("description") String description,
+			@RequestParam("releaseYear") int year, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
+			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
-		dao.createFilm(film);
-		if (film.getFilmId() != 0) {
-		String lang = dao.getFilmLang(film);
-		film.setLanguage(lang);
-		List<Actor> actors = new ArrayList<>();
-		film.setActors(actors);
-		mv.addObject(film);
-		return mv;
-		}
-		mv.setViewName("AddFilmViewer.jsp");
+		
+		
+
+			Film film = new Film(title, description, year, 1, rentalDuration, rentalRate, length, replacementCost,
+					rating);
+			film = dao.createFilm(film);
+			if (film != null) {
+				String lang = dao.getFilmLang(film);
+				film.setLanguage(lang);
+				List<Actor> actors = new ArrayList<>();
+				film.setActors(actors);
+				mv.addObject(film);
+			}
+			mv.setViewName("AddFilmViewer.jsp");
 		return mv;
 	}
-	@RequestMapping(path="deleteFilm.do")
-	public ModelAndView deleter(@RequestParam("id")int id) {
+
+	@RequestMapping(path = "deleteFilm.do")
+	public ModelAndView deleter(@RequestParam("id") int id) {
 		ModelAndView mv = new ModelAndView();
 		if (id > 1000) {
-		Film film = dao.findFilmById(id);
-		dao.deleteFilm(film);
-		mv.addObject(film);
-		}		
+			Film film = dao.findFilmById(id);
+			dao.deleteFilm(film);
+			mv.addObject(film);
+		}
 		mv.setViewName("DeletedFilmViewer.jsp");
 		return mv;
 	}
-	
-	
 
 }
