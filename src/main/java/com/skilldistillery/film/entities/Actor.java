@@ -1,6 +1,8 @@
 package com.skilldistillery.film.entities;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Actor {
 	private int id;
@@ -10,8 +12,12 @@ public class Actor {
 	
 	public Actor() {}
 
+	public Actor(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public Actor(int id, String firstName, String lastName) {
-		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -19,14 +25,6 @@ public class Actor {
 
 	public int getId() {
 		return id;
-	}
-
-	public List<Film> getFilms() {
-		return films;
-	}
-
-	public void setFilms(List<Film> films) {
-		this.films = films;
 	}
 
 	public void setId(int id) {
@@ -49,10 +47,35 @@ public class Actor {
 		this.lastName = lastName;
 	}
 
+	public List<Film> getFilms() {
+		List<Film> copy = new ArrayList<>(films);
+		return copy;
+	}
+
+	public void setFilms(List<Film> films) {
+		this.films = films;
+	}
+
 	@Override
 	public String toString() {
-		return "Actor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
-	};
-	
+		return firstName + " " + lastName;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(firstName, id, lastName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Actor other = (Actor) obj;
+		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
+	}
 	
 }
