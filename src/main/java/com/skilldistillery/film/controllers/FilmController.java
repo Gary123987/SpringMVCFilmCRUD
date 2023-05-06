@@ -43,7 +43,11 @@ public class FilmController {
 	@RequestMapping(path="FilmLookup2.do")
 	public ModelAndView lookUpByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = dao.findFilmByKeyword(keyword);
+		String[] splited = keyword.split("\\s+");
+		List<Film> films = new ArrayList<>(); 
+		for (String splitKeyword : splited) {
+		films.addAll(dao.findFilmByKeyword(splitKeyword));
+		}
 		for (Film film : films) {
 			String lang = dao.getFilmLang(film);
 			film.setLanguage(lang);		
