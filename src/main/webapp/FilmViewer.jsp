@@ -18,8 +18,10 @@
 			src="https://thumbs.dreamstime.com/b/movie-slate-film-reel-wood-clapper-wooden-backgorund-36502412.jpg"
 			width="300" height="200" alt="stock cinema photo" />
 		<p>
-			Title: <strong>${film.title }</strong> <br>${film.desc }
+			Title: <strong>${film.title }</strong> 
+			<br>${film.desc }
 		<ul>
+			<li><em>Film ID: <strong>${film.filmId }</strong></em></li>
 			<li>Release Year: ${film.releaseYear }</li>
 			<li>Rating: ${film.rating }</li>
 			<li>Runtime: ${film.length } minutes</li>
@@ -29,7 +31,6 @@
 			<li>Replacement Cost: <fmt:formatNumber type="currency"
 					value="${film.repCost }" /></li>
 			<li>Language ID: ${film.langId }</li>
-			<li>Film ID: ${film.filmId }</li>
 			<%-- <p>Language: ${film.language }</p> --%>
 			<li>Special Features: ${film.features }</li>
 		</ul>
