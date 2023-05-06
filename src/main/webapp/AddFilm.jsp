@@ -19,6 +19,5 @@
 			type="text" name="replacementCost"><br> Rating:<input
 			type="text" name="rating"> <input type="submit">
 	</form>
-
 </body>
 </html>
