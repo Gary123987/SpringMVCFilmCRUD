@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
-
+@Component
 public interface DatabaseAccessor {
 	Film findFilmById(int fId);
 	Actor findActorById(int aId);

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/FilmLookup.do">
+<form action="FilmLookup.do">
 Please enter the ID you wish to lookup:<br>
 <input type="text" name="FilmID">
 <input type="submit" value="submit">

@@ -22,7 +22,7 @@ public class FilmController {
 		return "WEB-INF/home.jsp";
 	}
 	
-	@RequestMapping(path="/FilmLookup.do")
+	@RequestMapping(path="FilmLookup.do")
 	public ModelAndView lookUp(@RequestParam("FilmID") int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(id);
