@@ -328,11 +328,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setFilmId(newFilmId);
+					return film;
 				}
-			} else {
-				film = null;
-			}
+			} 
 			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
 			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -345,7 +345,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				}
 			}
 		}
-		return film;
+		return null;
 	}
 	
 	@Override
