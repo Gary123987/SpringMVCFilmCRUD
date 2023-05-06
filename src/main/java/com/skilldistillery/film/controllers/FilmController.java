@@ -30,7 +30,24 @@ public class FilmController {
 		mv.addObject(film);
 		return mv;
 	}
-		
+	
+	@RequestMapping(path="AddFilm.do")
+	public ModelAndView adder(@RequestParam("title") String title,
+			@RequestParam("description") String description,
+			@RequestParam("releaseYear") int year,
+			@RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("rentalRate") double rentalRate,
+			@RequestParam("length")int length,
+			@RequestParam("replacementCost") double replacementCost,
+			@RequestParam("rating")String rating) {
+		ModelAndView mv = new ModelAndView();
+		Film film = new Film(0, title, description, year, 1, rentalDuration, rentalRate, length, replacementCost, rating);
+		film = dao.createFilm(film);
+		mv.setViewName("FilmViewer.jsp");
+		mv.addObject(film);
+		return mv;
+	}
+	
 	
 
 }
