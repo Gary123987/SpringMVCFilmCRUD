@@ -50,7 +50,7 @@
 				</c:when>
 
 				<c:otherwise>
-					<h2>You can't delete this film. You can only delete films you
+					<h2>Unable to delete film. You can only delete films you
 						have created.</h2>
 				</c:otherwise>
 

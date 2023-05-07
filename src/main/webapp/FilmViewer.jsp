@@ -86,7 +86,7 @@
 				</c:when>
 
 				<c:otherwise>
-					<h2>No film found in database.</h2>
+					<h2>No film found in database</h2>
 				</c:otherwise>
 
 			</c:choose>
