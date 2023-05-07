@@ -283,11 +283,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "DELETE FROM film_actor WHERE actor_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
-			int updateCount = stmt.executeUpdate();
+			stmt.executeUpdate();
 			sql = "DELETE FROM actor WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
-			updateCount = stmt.executeUpdate();
+			stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 			conn.close();
 		} catch (SQLException sqle) {
@@ -358,11 +358,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "DELETE FROM film_actor WHERE film_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getFilmId());
-			int updateCount = stmt.executeUpdate();
+			stmt.executeUpdate();
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getFilmId());
-			updateCount = stmt.executeUpdate();
+			stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 			conn.close();
 		} catch (SQLException sqle) {

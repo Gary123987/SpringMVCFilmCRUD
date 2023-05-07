@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.skilldistillery.film.data.DatabaseAccessor;
-import com.skilldistillery.film.data.DatabaseAccessorObject;
-
 public class Film {
 	private int filmId;
 	private String title;
@@ -53,6 +50,19 @@ public class Film {
 		this.length = length;
 		this.repCost = repCost;
 		this.rating = rating;
+	}
+
+	public Film(String title, String desc, int releaseYear, int langId, int rentDur, double rate,
+			int length, double repCost, String rating, String features) {
+		this.title = title;
+		this.desc = desc;
+		this.releaseYear = releaseYear;
+		this.langId = langId;
+		this.rentDur = rentDur;
+		this.rate = rate;
+		this.length = length;
+		this.repCost = repCost;
+		this.rating = rating;
 		this.features = features;
 	}
 
@@ -68,7 +78,6 @@ public class Film {
 		this.length = length;
 		this.repCost = repCost;
 		this.rating = rating;
-		this.features = features;
 	}
 
 	public Film(int filmId, String title, String desc, int releaseYear, int langId, int rentDur, double rate,
