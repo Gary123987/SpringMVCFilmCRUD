@@ -30,7 +30,7 @@
 		(Current is ${film.rating}): <input type="radio" name="rating"
 			value="G">G <input type="radio" name="rating" value="PG"
 			required>PG <input type="radio" name="rating" value="PG13">PG13
-		<input type="radio" name="rating" value="R">R <br> <inputs
+		<input type="radio" name="rating" value="R">R <br> <input
 			type="submit" class="btn btn-dark" />
 	</form>
 
