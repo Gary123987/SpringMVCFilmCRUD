@@ -9,6 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Film Viewer</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div>
@@ -44,7 +48,7 @@
 						<li>Special Features: ${film.features }</li>
 						<li><a
 							href="updateFilm.do?filmID=<c:out value="${film.filmId}" />"
-							class="btn btn-secondary" role="button">Update this Film</a></li>
+							class="btn btn-primary" role="button">Update this Film</a></li>
 					</ul>
 				</c:when>
 
@@ -59,11 +63,13 @@
 	<p>
 		<a href="home.do"><img
 			src="https://images.freeimages.com/clg/istock/previews/1056/105623323-home-sign-icon-main-page-button-navigation.jpg"
-			width="40" height="40" alt="home icon"></a> | <a href="AddFilm.jsp"
-			class="btn btn-secondary" role="button">Add Film</a> | <a
+			width="40" height="40" alt="home icon"></a> <a href="AddFilm.jsp"
+			class="btn btn-secondary" role="button">Add Film</a> <a
 			href="DeleteFilm.jsp" class="btn btn-secondary" role="button">Delete
-			Film</a> | <a href="LookupFilm.jsp" class="btn btn-secondary"
-			role="button">Lookup Film</a>
+			Film</a> <a href="LookupFilm.jsp" class="btn btn-secondary" role="button">Lookup
+			Film</a>
 	</p>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
