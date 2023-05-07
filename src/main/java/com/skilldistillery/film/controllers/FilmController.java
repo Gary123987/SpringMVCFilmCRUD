@@ -39,6 +39,8 @@ public class FilmController {
 			mv.addObject(film);
 		}
 		mv.setViewName("FilmViewer.jsp");
+		
+			
 		return mv;
 	}
 
