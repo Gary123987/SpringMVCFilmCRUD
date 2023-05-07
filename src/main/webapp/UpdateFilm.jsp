@@ -15,8 +15,8 @@
 	<h1>Update a Film</h1>
 
 	<form action="updateFilmV2.do">
-		Film ID (<em>Locked</em>): <input type="text" name="ID"
-			value="${film.filmId }" readonly><br> Title: <input
+		 <input type="hidden" name="ID"
+			value="${film.filmId }" ><br> Title: <input
 			type="text" value="${film.title}" name="title" required /><br>
 		Description: <input type="text" value="${film.desc}"
 			name="description" required /><br> Release Year: <input
