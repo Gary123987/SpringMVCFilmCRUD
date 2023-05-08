@@ -5,7 +5,7 @@ Web based application that makes queries, additions, updates and permitted delet
 
 ## Technologies Used
 - Java
-- Spring Boot
+- Spring MVC
 - SQL
 - JSP
 - MAMP
